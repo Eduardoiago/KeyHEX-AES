@@ -3,9 +3,9 @@
 
 > # KEYHEX
 
-#### Script python de criptografia AES
+#### AES Encryption Python Script
 
-O projeto KeyHEX é uma ferramenta interativa desenvolvida em `Python` que permite aos usuários criptografar e descriptografar mensagens usando AES (Advanced Encryption Standard). O script tem como missão transformar sua mensagem em algoritmo AES em modo CFB que só poderá ser descriptografado com o código criptografado e a senha. O KeyHEX foi um experimento de estudo sobre criptografia AES, menu e aplicações GUI. O processo de conversão em GUI ainda está sendo feito.
+O projeto KeyHEX é uma ferramenta interativa desenvolvida em `Python` que permite aos usuários criptografar e descriptografar mensagens usando AES (Advanced Encryption Standard). O script tem como missão transformar sua mensagem em algoritmo AES em modo CFB que só poderá ser descriptografado com o código criptografado e a senha. O KeyHEX foi um experimento de estudo sobre criptografia AES.
 
 ## AES (_Advanced Encryption Standard_).
 
@@ -14,8 +14,7 @@ O projeto KeyHEX é uma ferramenta interativa desenvolvida em `Python` que permi
 
 O AES é um algoritmo de criptografia simétrica, o que significa que ele usa a mesma chave para criptografar e descriptografar os dados. Ele opera em blocos de dados e foi projetado para ser rápido e eficiente em uma ampla variedade de dispositivos.
 
-O AES substituiu o antigo algoritmo de criptografia DES (Data Encryption Standard).
-O AES opera em diferentes tamanhos de chave, sendo os mais comuns 128, 192 e 256 bits. Quanto maior a chave, mais difícil é para um atacante realizar um ataque de força bruta bem-sucedido. Na prática, o AES com uma chave de 128 bits é considerado seguro para a maioria das aplicações, mas chaves maiores podem ser preferíveis para cenários de alta segurança.
+O AES substituiu o antigo algoritmo de criptografia DES (Data Encryption Standard). O AES opera em diferentes tamanhos de chave, sendo os mais comuns 128, 192 e 256 bits. Quanto maior a chave, mais difícil é para um atacante realizar um ataque de força bruta bem-sucedido. Na prática, o AES com uma chave de 128 bits é considerado seguro para a maioria das aplicações, mas chaves maiores podem ser preferíveis para cenários de alta segurança.
 
 _O AES consiste em várias etapas, incluindo substituições de bytes, permutações de linhas, permutações de colunas e adição de chaves, todas aplicadas repetidamente em múltiplas rodadas. Essas operações complexas fornecem uma camada de segurança robusta contra uma variedade de ataques criptográficos conhecidos._
 </details>
