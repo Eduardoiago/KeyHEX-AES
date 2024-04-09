@@ -1,7 +1,7 @@
 
 <img src="https://i.ibb.co/5FBDP1s/title-keyhex.jpg" alt="title-keyhex" border="0">
 
-# KEYHEX
+> # KEYHEX
 
 #### Script python de criptografia EAS
 
@@ -10,7 +10,7 @@ O projeto KeyHEX é uma ferramenta interativa desenvolvida em `Python` que permi
 ## AES (_Advanced Encryption Standard_).
 
 <details>
-<summary>Criptografia AES</summary>
+<summary>CRIPTOGRAFIA AES</summary><br>
 
 O AES é um algoritmo de criptografia simétrica, o que significa que ele usa a mesma chave para criptografar e descriptografar os dados. Ele opera em blocos de dados e foi projetado para ser rápido e eficiente em uma ampla variedade de dispositivos.
 
@@ -19,13 +19,14 @@ O AES opera em diferentes tamanhos de chave, sendo os mais comuns 128, 192 e 256
 
 _O AES consiste em várias etapas, incluindo substituições de bytes, permutações de linhas, permutações de colunas e adição de chaves, todas aplicadas repetidamente em múltiplas rodadas. Essas operações complexas fornecem uma camada de segurança robusta contra uma variedade de ataques criptográficos conhecidos._
 </details>
+
 __________________________________________________________
 
 - ## Requerimentos:
 
 #### Instalando bibliotecas
 
-``` shell
+``` bash
     pip install cryptography os
     pip install os
     pip install tqdm
