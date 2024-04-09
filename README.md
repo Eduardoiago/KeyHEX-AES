@@ -3,7 +3,7 @@
 
 > # KEYHEX
 
-#### Script python de criptografia EAS
+#### Script python de criptografia AES
 
 O projeto KeyHEX é uma ferramenta interativa desenvolvida em `Python` que permite aos usuários criptografar e descriptografar mensagens usando AES (Advanced Encryption Standard). O script tem como missão transformar sua mensagem em algoritmo AES em modo CFB que só poderá ser descriptografado com o código criptografado e a senha. O KeyHEX foi um experimento de estudo sobre criptografia AES, menu e aplicações GUI. 
 
@@ -27,7 +27,7 @@ __________________________________________________________
 #### Instalando bibliotecas
 
 ``` bash
-    pip install cryptography os
+    pip install cryptography 
     pip install os
     pip install tqdm
 ```
@@ -37,6 +37,8 @@ The `os` library in Python provides an interface for interacting with the underl
 
 Também foi usado a biblioteca `tqdm` para gerar uma barra de progresso.
 
+__________________________________________________________
+
 ## Functionalities:
 
 1. Criptografar mensagens, senhas e dados pessoais: o usuário pode inserir uma mensagem e uma senha para criptografá-la.
@@ -45,13 +47,11 @@ Também foi usado a biblioteca `tqdm` para gerar uma barra de progresso.
 
 3. Ele utiliza o algoritmo AES em modo CFB (_Cipher Feedback Mode_) para criptografar os dados. Além disso, utiliza _PBKDF2_ para derivar a chave de uma senha fornecida.
 
-## Technologies used:
-
-![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)&nbsp; 
-
 ## Interface console:
 
-## Interface GUI:
+<img src="https://i.ibb.co/GtmN7B2/interface-image1.png" alt="interface-image1" border="0">
+
+<!--## Interface GUI:-->
 
 ## Video demo KeyHEX
 
@@ -59,4 +59,8 @@ Também foi usado a biblioteca `tqdm` para gerar uma barra de progresso.
 
 ## License
  * [MIT](LICENSE)
+
+## Technologies used:
+
+![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)&nbsp; 
 __________________________________________________________
