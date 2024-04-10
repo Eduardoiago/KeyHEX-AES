@@ -7,6 +7,8 @@
 
 O projeto KeyHEX é uma ferramenta interativa desenvolvida em `Python` que permite aos usuários criptografar e descriptografar mensagens usando AES (Advanced Encryption Standard). O script tem como missão transformar sua mensagem em algoritmo AES em modo CFB que só poderá ser descriptografado com o código criptografado e a senha. O KeyHEX foi um experimento de estudo sobre criptografia AES.
 
+O processo de desenvolvimento do projeto em GUI está em andamento.
+
 ## AES (_Advanced Encryption Standard_).
 
 <details>
