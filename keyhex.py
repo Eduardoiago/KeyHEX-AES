@@ -6,8 +6,9 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 import os
 from tqdm import tqdm
 
+# KeyHEX | Console
+
 def encrypt_message(message, password):
-    # Derivação da chave
     salt = os.urandom(16)
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
@@ -18,18 +19,14 @@ def encrypt_message(message, password):
     )
     key = kdf.derive(password.encode())
 
-    # Padding
     padder = padding.PKCS7(algorithms.AES.block_size).padder()
     padded_data = padder.update(message.encode()) + padder.finalize()
 
-    # Inicialização do vetor de inicialização
     iv = os.urandom(16)
 
-    # Criptografia AES
     cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
     encryptor = cipher.encryptor()
 
-    # Barra de progresso
     with tqdm(total=len(padded_data), desc="Encrypting") as pbar:
         encrypted_data = b""
         chunk_size = 1024
@@ -44,12 +41,10 @@ def encrypt_message(message, password):
     return salt + iv + encrypted_data
 
 def decrypt_message(encrypted_data, password):
-    # Obtenção do salt e IV
     salt = encrypted_data[:16]
     iv = encrypted_data[16:32]
     ct = encrypted_data[32:]
 
-    # Derivação da chave
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
         length=32,
@@ -59,11 +54,9 @@ def decrypt_message(encrypted_data, password):
     )
     key = kdf.derive(password.encode())
 
-    # Descriptografar
     cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
     decryptor = cipher.decryptor()
 
-    # Barra de progresso
     with tqdm(total=len(ct), desc="Decrypting") as pbar:
         decrypted_data = b""
         chunk_size = 1024
@@ -75,13 +68,11 @@ def decrypt_message(encrypted_data, password):
 
         decrypted_data += decryptor.finalize()
 
-    # Remoção do padding
     unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()
     data = unpadder.update(decrypted_data) + unpadder.finalize()
 
     return data.decode()
 
-# Menu Variáveis
 optionEncrypt = "          1. Encrypt your message in AES"
 optionDecrypt = "          2. Decrypt your message in AES"
 optionExit = "          3. Exit"
@@ -91,7 +82,6 @@ inputMessageEncrypt = "          Type the message: "
 inputMessageDecrypt = "          Enter the encrypted message (in hexadecimal): "
 passwordInput = "          Enter the password: "
 
-# Menu
 def main():
     while True:
         print("""       
