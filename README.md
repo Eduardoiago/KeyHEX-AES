@@ -5,54 +5,55 @@
 
 #### AES Encryption Python Script
 
-O projeto KeyHEX é uma ferramenta interativa desenvolvida em `Python` que permite aos usuários criptografar e descriptografar mensagens usando AES (Advanced Encryption Standard). O script tem como missão transformar sua mensagem em algoritmo AES em modo CFB que só poderá ser descriptografado com o código criptografado e a senha. O KeyHEX foi um experimento de estudo sobre criptografia AES.
+The KeyHEX project is an interactive tool developed in Python that allows users to encrypt and decrypt messages using AES (Advanced Encryption Standard). The script's mission is to transform your message into an AES algorithm in CFB mode that can only be decrypted with the encrypted code and password. KeyHEX was an experiment to study AES encryption.
 
-O processo de desenvolvimento do projeto em GUI está em andamento.
+_The GUI development process is underway._
 
 ## AES (_Advanced Encryption Standard_).
 
 <details>
-<summary>CRIPTOGRAFIA AES</summary><br>
+<summary>CRYPTOGRAPHY AES</summary><br>
 
-O AES é um algoritmo de criptografia simétrica, o que significa que ele usa a mesma chave para criptografar e descriptografar os dados. Ele opera em blocos de dados e foi projetado para ser rápido e eficiente em uma ampla variedade de dispositivos.
+AES is a symmetric encryption algorithm, which means that it uses the same key to encrypt and decrypt data. It operates on blocks of data and is designed to be fast and efficient on a wide variety of devices.
 
-O AES substituiu o antigo algoritmo de criptografia DES (Data Encryption Standard). O AES opera em diferentes tamanhos de chave, sendo os mais comuns 128, 192 e 256 bits. Quanto maior a chave, mais difícil é para um atacante realizar um ataque de força bruta bem-sucedido. Na prática, o AES com uma chave de 128 bits é considerado seguro para a maioria das aplicações, mas chaves maiores podem ser preferíveis para cenários de alta segurança.
+AES replaced the old DES (Data Encryption Standard) encryption algorithm. AES works with different key sizes, the most common being 128, 192 and 256 bits. The larger the key, the more difficult it is for an attacker to carry out a successful brute force attack. In practice, AES with a 128-bit key is considered secure for most applications, but larger keys may be preferable for high-security scenarios.
 
-_O AES consiste em várias etapas, incluindo substituições de bytes, permutações de linhas, permutações de colunas e adição de chaves, todas aplicadas repetidamente em múltiplas rodadas. Essas operações complexas fornecem uma camada de segurança robusta contra uma variedade de ataques criptográficos conhecidos._
+_AES consists of several steps, including byte substitutions, row permutations, column permutations and key addition, all applied repeatedly in multiple rounds. These complex operations provide a robust security layer against a variety of known cryptographic attacks._
 </details>
 
 __________________________________________________________
 
-- ## Requerimentos:
+- ## Requirements:
 
-#### Instalando bibliotecas
+#### Installing Libraries
 
 ``` bash
     pip install cryptography 
-    pip install os
-    pip install tqdm
 ```
-A biblioteca Python `cryptography` é uma ferramenta poderosa para a implementação de criptografia e segurança em aplicativos Python. Ela oferece suporte a uma ampla gama de algoritmos criptográficos, como AES, RSA, HMAC e muito mais.
+The Python `cryptography` library is a powerful tool for implementing cryptography and security in Python applications. It supports a wide range of cryptographic algorithms, such as AES, RSA, HMAC and many more.
 
+``` bash
+    pip install os
+```
 The `os` library in Python provides an interface for interacting with the underlying operating system. 
 
-Também foi usado a biblioteca `tqdm` para gerar uma barra de progresso.
-
+``` bash
+    pip install tqdm
+```
+The `tqdm` library was also used to generate a progress bar.
 __________________________________________________________
 
 ## Functionalities:
 
-1. Criptografar mensagens, senhas e dados pessoais: o usuário pode inserir uma mensagem e uma senha para criptografá-la.
+1. **Encrypt messages, passwords and personal data**: the user can enter a message and a password to encrypt it.
 
-2. Descriptografar mensagem: o usuário pode inserir uma mensagem criptografada (em hexadecimal) e uma senha para descriptografá-la.
+2. **Decrypt AES message**: the user can enter an encrypted message (in hexadecimal) and a password to decrypt it.
 
-3. Ele utiliza o algoritmo AES em modo CFB (_Cipher Feedback Mode_) para criptografar os dados. Além disso, utiliza _PBKDF2_ para derivar a chave de uma senha fornecida.
+3. It uses the AES algorithm in CFB mode (_Cipher Feedback Mode_) to encrypt the data. It also uses _PBKDF2_ to derive the key from a supplied password.
 
 ## Interface console:
 
 <img src="https://i.ibb.co/GtmN7B2/interface-image1.png" alt="interface-image1" border="0">
-
-<!--## Interface GUI:-->
 
 ## Video demo KeyHEX
 
