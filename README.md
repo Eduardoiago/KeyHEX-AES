@@ -19,6 +19,8 @@ AES is a symmetric encryption algorithm, which means that it uses the same key t
 AES replaced the old DES (Data Encryption Standard) encryption algorithm. AES works with different key sizes, the most common being 128, 192 and 256 bits. The larger the key, the more difficult it is for an attacker to carry out a successful brute force attack. In practice, AES with a 128-bit key is considered secure for most applications, but larger keys may be preferable for high-security scenarios.
 
 _AES consists of several steps, including byte substitutions, row permutations, column permutations and key addition, all applied repeatedly in multiple rounds. These complex operations provide a robust security layer against a variety of known cryptographic attacks._
+
+<img src="https://i.ibb.co/W0PLD96/AEScryptography.jpg" alt="AEScryptography" border="0">
 </details>
 
 __________________________________________________________
