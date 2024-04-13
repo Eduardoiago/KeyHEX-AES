@@ -52,7 +52,7 @@ Each round consists of several processing steps, including one that depends on t
 
 <details>
 <summary>
-    <h3>Description of the algorithm</h3>
+    <h3>Description of the Algorithm</h3>
 </summary><br>    
 
 `KeyExpansion`  – Round keys are derived from the encryption key using AES key planning . AES requires a separate 128 - bit key block round for each round plus one.
