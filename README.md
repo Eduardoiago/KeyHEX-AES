@@ -17,7 +17,7 @@ Cryptography is the science of providing security and protection of information.
 
 <details>
 <summary>
-    <h4>Advanced Encryption Standard</h4>
+    <h3>Advanced Encryption Standard</h3>
 </summary><br>
 
 AES is a variant of the Rijndael block cipher developed by two Belgian cryptographers, `Joan Daemen` and `Vincent Rijmen`, who submitted a proposal to NIST during the AES selection process. Rijndael is a family of ciphers with different key and block sizes. For AES, NIST selected three members of the Rijndael family, each with a block size of 128 bits, but three different key lengths: 128, 192 and 256 bits.
@@ -32,7 +32,7 @@ _AES consists of several steps, including byte substitutions, row permutations, 
 
 <details>
 <summary>
-    <h4>Description of the Ciphers</h4>
+    <h3>Description of the Ciphers</h3>
 </summary><br>
 
 AES is based on a design principle known as a substitution–permutation network, and is efficient in both software and hardware. Unlike its predecessor DES, AES does not use a Feistel network. AES is a variant of Rijndael, with a fixed block size of 128 bits, and a key size of 128, 192, or 256 bits. By contrast, Rijndael per se is specified with block and key sizes that may be any multiple of 32 bits, with a minimum of 128 and a maximum of 256 bits. Most AES calculations are done in a particular finite field.
@@ -52,7 +52,7 @@ Each round consists of several processing steps, including one that depends on t
 
 <details>
 <summary>
-    <h4>Calculate SHA-256 Hash</h4>
+    <h3>Calculate SHA-256 Hash</h3>
 </summary><br>    
     
 |Input|Output      |
@@ -61,6 +61,7 @@ Each round consists of several processing steps, including one that depends on t
 
 _The longer the encrypted message, the longer the hexadecimal code._
 </details>
+
 __________________________________________________________
 
 - ## Requirements:
@@ -98,6 +99,79 @@ __________________________________________________________
 ## Video demo KeyHEX
 
 [![Alt text](https://img.youtube.com/vi/2bGmIa1zv4A/0.jpg)](https://www.youtube.com/watch?v=2bGmIa1zv4A)
+
+## Explained of Code
+
+<details>
+    <summary>
+        <h3>Libraries</h3>
+    </summary>
+
+The libraries needed for encryption and interaction with the operating system are important. This includes the standard encryption backend, padding functions, encryption algorithms (AES), modes of operation (CFB), hashing algorithms (SHA256), a function for deriving keys from a password (PBKDF2HMAC), and a library for generating random numbers.
+
+``` python
+    from cryptography.hazmat.backends import default_backend
+    from cryptography.hazmat.primitives import padding
+    from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+    import os
+    from tqdm import tqdm
+```
+</details>
+
+<details>
+    <summary>
+        <h3>encrypt_message Function</h3>
+    </summary>
+    
+`Encrypt_message` function: This function takes a message and a password as input and returns the encrypted message. The process is as follows:
+
+- Generates a "salt" value (16 random bytes) to strengthen the password.
+
+- Derives an encryption key from the password using the PBKDF2HMAC function with SHA256.
+  
+- Adds PKCS7 padding to the message.
+Generates a random initialization vector (IV).
+
+- Creates a Cipher object to encrypt the message using AES in CFB mode.
+  
+- Iterates over the message by encrypting it in 1024-byte chunks and updating a progress bar.
+  
+- Returns the concatenated salt, IV and encrypted message.
+</details>
+
+<details>
+    <summary>
+        <h3>decrypt_message Function</h3>
+    </summary>
+
+`Decrypt_message` function: This function receives the encrypted message and password, and returns the original message. The process is as follows:
+
+- Extracts the salt, IV and encrypted message from the received message.
+
+- Derives the encryption key from the password and salt using PBKDF2HMAC.
+  
+- Creates a Cipher object to decrypt the message using AES in CFB mode.
+  
+- Iterates over the encrypted message by decrypting it into 1024-byte chunks and updating a progress bar.
+  
+- Removes the padding from the decrypted message and returns the original message.
+</details>
+
+<details>
+    <summary>
+        <h3>Notes</h3>
+    </summary>
+
+The code uses PBKDF2HMAC to derive the encryption key from the password, which is a best practice to increase security.
+
+PKCS7 padding is used to ensure that the message is of a size compatible with the AES algorithm.
+
+The CFB mode of operation is used for encryption, which is a block mode of operation that makes encryption more efficient for operations on smaller chunks of data.
+
+The use of a random initialization vector (IV) is essential to ensure that messages encrypted with the same key do not generate the same ciphertext.
+</details>
 
 ## License
  * [MIT](LICENSE)
