@@ -53,6 +53,8 @@ __________________________________________________________
 
 3. It uses the AES algorithm in CFB mode (_Cipher Feedback Mode_) to encrypt the data. It also uses _PBKDF2_ to derive the key from a supplied password.
 
+4. The algorithm uses random numbers and deals with entropy (unpredictable randomness) and secure generation of random numbers (e.g. using CSPRNG). Secure random numbers are unpredictable by nature and developers should care about them, because broken random generator means compromised or hacked system or app.
+
 ## Interface console:
 
 <img src="https://i.ibb.co/GtmN7B2/interface-image1.png" alt="interface-image1" border="0">
