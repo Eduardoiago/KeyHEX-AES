@@ -52,6 +52,42 @@ Each round consists of several processing steps, including one that depends on t
 
 <details>
 <summary>
+    <h3>Description of the algorithm</h3>
+</summary><br>    
+
+`KeyExpansion`  – Round keys are derived from the encryption key using AES key planning . AES requires a separate 128 - bit key block round for each round plus one.
+
+**Addition of early round bracket**:
+
+`AddRoundKey`  – each byte of the state is combined with a byte of the round key using xor bitwise operations.
+
+**9, 11 or 13 rounds**:
+
+1. `SubBytes` – a non- linear  replacement step where each byte is replaced by another according to a lookup table.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/AES-SubBytes.svg/1280px-AES-SubBytes.svg.png" alt="SubByts">
+
+2. `ShiftRows` – a transposition step in which the last three lines of the state are cyclically shifted by a certain number of steps.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/AES-ShiftRows.svg" alt="ShiftRows">
+
+3. `MixColumns` – a linear mixing operation that operates on the columns of the state, combining the four bytes in each column.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/76/AES-MixColumns.svg" alt="mixcolumns">
+
+4. `AddRoundKey` - In the AddRoundKey step , the subkey is combined with the state. For each round, a subkey is derived from the main key using AES key planning and each subkey is the same size as the state. The subkey is added by matching each state byte with the corresponding byte of the subkey using bitwise XOR .
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/AES-AddRoundKey.svg" alt="addKey">
+
+**Final round (making 10, 12 or 14 rounds in total)**:
+
+- SubBytes
+- ShiftRows
+- AddRoundKey
+</details>
+
+<details>
+<summary>
     <h3>Calculate SHA-256 Hash</h3>
 </summary><br>    
     
