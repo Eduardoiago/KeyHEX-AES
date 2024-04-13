@@ -25,6 +25,9 @@ AES is a variant of the Rijndael block cipher developed by two Belgian cryptogra
 AES is a symmetric encryption algorithm, which means that it uses the same key to encrypt and decrypt data. It operates on blocks of data and is designed to be fast and efficient on a wide variety of devices. AES replaced the old DES (Data Encryption Standard) encryption algorithm. 
 
 _AES consists of several steps, including byte substitutions, row permutations, column permutations and key addition, all applied repeatedly in multiple rounds. These complex operations provide a robust security layer against a variety of known cryptographic attacks._
+
+**Visualization of the AES round function**:
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSjoUEnGcbyjc8m8YEsG0uayAtN4KK3DvGQw&usqp=CAU" alt="roundFunction">
 </details>
 
 <details>
@@ -47,6 +50,17 @@ The key size used for an AES cipher specifies the number of transformation round
 Each round consists of several processing steps, including one that depends on the encryption key itself. A set of reverse rounds are applied to transform ciphertext back into the original plaintext using the same encryption key.
 </details>
 
+<details>
+<summary>
+    <h4>Calculate SHA-256 Hash</h4>
+</summary><br>    
+    
+|Input|Output      |
+|-----|------------| 
+|hello|2cf24dba5fb0a30e26e83b2ac5b5e29e1b161e5c1fa7425e79043062938b9824|
+
+_The longer the encrypted message, the longer the hexadecimal code._
+</details>
 __________________________________________________________
 
 - ## Requirements:
@@ -76,14 +90,6 @@ __________________________________________________________
 2. **Decrypt AES message**: the user can enter an encrypted message (in hexadecimal) and a password to decrypt it.
 
 3. It uses the AES algorithm in CFB mode (_Cipher Feedback Mode_) to encrypt the data. It also uses _PBKDF2_ to derive the key from a supplied password.
-
-## Calculate SHA-256 Hash
-
-|Input|Output     |
-|-----|-----------|
-|hello|2cf24dba5fb0a30e26e83b2ac5b5e29e1b161e5c1fa7425e79043062938b9824|
-
-_The longer the encrypted message, the longer the hexadecimal code._
 
 ## Interface console:
 
