@@ -5,9 +5,9 @@
 
 #### AES Encryption Python Script
 
-The KeyHEX project is an interactive tool developed in Python that allows users to encrypt and decrypt messages using AES (Advanced Encryption Standard). The script's mission is to transform your message into an AES algorithm in CFB mode that can only be decrypted with the encrypted code and password. KeyHEX was an experiment to study AES encryption.
+The KeyHEX project is an interactive tool developed in Python that allows users to encrypt and decrypt messages using AES (Advanced Encryption Standard). The script's mission is to transform your message into an AES algorithm with SHA-256 in CFB mode that can only be decrypted with the encrypted code and password. KeyHEX was an experiment to study AES encryption.
 
-_The GUI development process is underway._
+_GUI development in progress._
 
 ## AES (_Advanced Encryption Standard_).
 
@@ -54,6 +54,12 @@ __________________________________________________________
 3. It uses the AES algorithm in CFB mode (_Cipher Feedback Mode_) to encrypt the data. It also uses _PBKDF2_ to derive the key from a supplied password.
 
 4. The algorithm uses random numbers and deals with entropy (unpredictable randomness) and secure generation of random numbers (e.g. using CSPRNG). Secure random numbers are unpredictable by nature and developers should care about them, because broken random generator means compromised or hacked system or app.
+
+## Calculate SHA-256 Hash
+
+|Input|Output     |
+|-----|-----------|
+|hello|2cf24dba5fb0a30e26e83b2ac5b5e29e1b161e5c1fa7425e79043062938b9824|
 
 ## Interface console:
 
