@@ -9,10 +9,16 @@ The KeyHEX project is an interactive tool developed in Python that allows users 
 
 _GUI development in progress._
 
+## What is Cryptography?
+
+Cryptography is the science of providing security and protection of information. It is used everywhere in our digital world: when you open a Web site, send an email or connect to the WiFi network. 
+
 ## AES (_Advanced Encryption Standard_).
 
 <details>
-<summary>CRYPTOGRAPHY AES</summary><br>
+<summary>
+    <h4>AES CRYPTOGRAPHY</h4>
+</summary><br>
 
 AES is a symmetric encryption algorithm, which means that it uses the same key to encrypt and decrypt data. It operates on blocks of data and is designed to be fast and efficient on a wide variety of devices.
 
@@ -53,13 +59,13 @@ __________________________________________________________
 
 3. It uses the AES algorithm in CFB mode (_Cipher Feedback Mode_) to encrypt the data. It also uses _PBKDF2_ to derive the key from a supplied password.
 
-4. The algorithm uses random numbers and deals with entropy (unpredictable randomness) and secure generation of random numbers (e.g. using CSPRNG). Secure random numbers are unpredictable by nature and developers should care about them, because broken random generator means compromised or hacked system or app.
-
 ## Calculate SHA-256 Hash
 
 |Input|Output     |
 |-----|-----------|
 |hello|2cf24dba5fb0a30e26e83b2ac5b5e29e1b161e5c1fa7425e79043062938b9824|
+
+_The longer the encrypted message, the longer the hexadecimal code._
 
 ## Interface console:
 
