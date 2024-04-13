@@ -17,16 +17,34 @@ Cryptography is the science of providing security and protection of information.
 
 <details>
 <summary>
-    <h4>AES CRYPTOGRAPHY</h4>
+    <h4>Advanced Encryption Standard</h4>
 </summary><br>
 
-AES is a symmetric encryption algorithm, which means that it uses the same key to encrypt and decrypt data. It operates on blocks of data and is designed to be fast and efficient on a wide variety of devices.
+AES is a variant of the Rijndael block cipher developed by two Belgian cryptographers, `Joan Daemen` and `Vincent Rijmen`, who submitted a proposal to NIST during the AES selection process. Rijndael is a family of ciphers with different key and block sizes. For AES, NIST selected three members of the Rijndael family, each with a block size of 128 bits, but three different key lengths: 128, 192 and 256 bits.
 
-AES replaced the old DES (Data Encryption Standard) encryption algorithm. AES works with different key sizes, the most common being 128, 192 and 256 bits. The larger the key, the more difficult it is for an attacker to carry out a successful brute force attack. In practice, AES with a 128-bit key is considered secure for most applications, but larger keys may be preferable for high-security scenarios.
+AES is a symmetric encryption algorithm, which means that it uses the same key to encrypt and decrypt data. It operates on blocks of data and is designed to be fast and efficient on a wide variety of devices. AES replaced the old DES (Data Encryption Standard) encryption algorithm. 
 
 _AES consists of several steps, including byte substitutions, row permutations, column permutations and key addition, all applied repeatedly in multiple rounds. These complex operations provide a robust security layer against a variety of known cryptographic attacks._
+</details>
 
-<img src="https://i.ibb.co/W0PLD96/AEScryptography.jpg" alt="AEScryptography" border="0">
+<details>
+<summary>
+    <h4>Description of the Ciphers</h4>
+</summary><br>
+
+AES is based on a design principle known as a substitution–permutation network, and is efficient in both software and hardware. Unlike its predecessor DES, AES does not use a Feistel network. AES is a variant of Rijndael, with a fixed block size of 128 bits, and a key size of 128, 192, or 256 bits. By contrast, Rijndael per se is specified with block and key sizes that may be any multiple of 32 bits, with a minimum of 128 and a maximum of 256 bits. Most AES calculations are done in a particular finite field.
+
+AES operates on a 4 × 4 column-major order array of 16 bytes b0, b1, ..., b15 termed the state.
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb9gHdsUaRHfPxATzjpYsmT4tHfEjcuc_BU1-oeaWHFqcx5tOeVh9_aBTC&s=10" alt="columnBytes">
+
+The key size used for an AES cipher specifies the number of transformation rounds that convert the input, called the plaintext, into the final output, called the ciphertext. The number of rounds are as follows:
+
+- 10 rounds for 128-bit keys.
+- 12 rounds for 192-bit keys.
+- 14 rounds for 256-bit keys.
+
+Each round consists of several processing steps, including one that depends on the encryption key itself. A set of reverse rounds are applied to transform ciphertext back into the original plaintext using the same encryption key.
 </details>
 
 __________________________________________________________
