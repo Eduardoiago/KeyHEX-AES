@@ -73,8 +73,8 @@ def decrypt_message(encrypted_data, password):
 
     return data.decode()
 
-optionEncrypt = "          1. Encrypt your message in AES"
-optionDecrypt = "          2. Decrypt your message in AES"
+optionEncrypt = "          1. Encrypt in AES"
+optionDecrypt = "          2. Decrypt in AES"
 optionExit = "          3. Exit"
 inputOption = "          Choose an option: "
 designLine = "==================================================================="
