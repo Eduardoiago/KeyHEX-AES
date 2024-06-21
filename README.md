@@ -5,13 +5,13 @@
 
 #### AES Encryption Python Script
 
-The KeyHEX project is an interactive tool developed in Python that allows users to encrypt and decrypt messages using AES (Advanced Encryption Standard). The tool mission is to transform your message into an AES algorithm with SHA-256 in CFB mode that can only be decrypted with the encrypted code and password. Before encrypting your messages and links, the tool processes SubBytes, ShiftRows, MixColumns and AddRoundKey. Remember to use strong passwords. KeyHEX was an experiment to study AES encryption. 
+The KeyHEX project is an interactive tool developed in Python that allows users to encrypt and decrypt messages using AES (Advanced Encryption Standard). The tool mission is to transform your message into an AES algorithm with SHA-256 in CFB mode that can only be decrypted with the encrypted code and password. Before encrypting your messages and links, the tool processes SubBytes, ShiftRows, MixColumns and AddRoundKey. Remember to use strong passwords. KeyHEX was an experiment to study AES encryption and SHA-256. 
 
 _GUI development in progress._
 
-## What is Cryptography?
+### What is Cryptography?
 
-Cryptography is the science of providing security and protection of information. It is used everywhere in our digital world: when you open a Web site, send an email or connect to the WiFi network. 
+Cryptography is a technique used to protect information, making it unreadable to anyone who doesn't have permission to access it. Imagine you want to send a secret message to a friend. With encryption, you turn that message into a code that only your friend can understand. This is done using a "key", which is like a password. Only those who have this key can decipher the code and read the original message. So even if someone else intercepts the message, they won't be able to understand what is written without the correct key. Cryptography is widely used on the internet to protect personal data, such as passwords and bank details, ensuring that this information remains secure.
 
 ## AES (_Advanced Encryption Standard_).
 
@@ -27,6 +27,7 @@ AES is a symmetric encryption algorithm, which means that it uses the same key t
 _AES consists of several steps, including byte substitutions, row permutations, column permutations and key addition, all applied repeatedly in multiple rounds. These complex operations provide a robust security layer against a variety of known cryptographic attacks._
 
 **Visualization of the AES round function**:
+
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSjoUEnGcbyjc8m8YEsG0uayAtN4KK3DvGQw&usqp=CAU" alt="roundFunction">
 </details>
 
@@ -98,9 +99,7 @@ Each round consists of several processing steps, including one that depends on t
 _The longer the encrypted message, the longer the hexadecimal code._
 </details>
 
-__________________________________________________________
-
-- ## Requirements:
+## Requirements:
 
 #### Installing Libraries
 
@@ -130,7 +129,7 @@ __________________________________________________________
 
 ## Interface console:
 
-<img src="https://i.ibb.co/GtmN7B2/interface-image1.png" alt="interface-image1" border="0">
+<img src="/assets/img/interface-keyHEX.png" alt="interface-image1" border="0">
 
 ## Video demo KeyHEX
 
@@ -163,6 +162,40 @@ The libraries needed for encryption and interaction with the operating system ar
     
 `Encrypt_message` function: This function takes a message and a password as input and returns the encrypted message. The process is as follows:
 
+``` python
+    def encrypt_message(message, password):
+        salt = os.urandom(16)
+        kdf = PBKDF2HMAC(
+            algorithm=hashes.SHA256(),
+            length=32,
+            salt=salt,
+            iterations=100000,
+            backend=default_backend()
+        )
+        key = kdf.derive(password.encode())
+
+        padder = padding.PKCS7(algorithms.AES.block_size).padder()
+        padded_data = padder.update(message.encode()) + padder.finalize()
+
+        iv = os.urandom(16)
+
+        cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
+        encryptor = cipher.encryptor()
+
+        with tqdm(total=len(padded_data), desc="Encrypting") as pbar:
+            encrypted_data = b""
+            chunk_size = 1024
+            for i in range(0, len(padded_data), chunk_size):
+                chunk = padded_data[i:i + chunk_size]
+                encrypted_chunk = encryptor.update(chunk)
+                encrypted_data += encrypted_chunk
+                pbar.update(len(chunk))
+
+            encrypted_data += encryptor.finalize()
+
+        return salt + iv + encrypted_data
+```
+
 - Generates a "salt" value (16 random bytes) to strengthen the password.
 
 - Derives an encryption key from the password using the PBKDF2HMAC function with SHA256.
@@ -183,6 +216,41 @@ Generates a random initialization vector (IV).
     </summary>
 
 `Decrypt_message` function: This function receives the encrypted message and password, and returns the original message. The process is as follows:
+
+``` python
+    def decrypt_message(encrypted_data, password):
+        salt = encrypted_data[:16]
+        iv = encrypted_data[16:32]
+        ct = encrypted_data[32:]
+
+        kdf = PBKDF2HMAC(
+            algorithm=hashes.SHA256(),
+            length=32,
+            salt=salt,
+            iterations=100000,
+            backend=default_backend()
+        )
+        key = kdf.derive(password.encode())
+
+        cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
+        decryptor = cipher.decryptor()
+
+        with tqdm(total=len(ct), desc="Decrypting") as pbar:
+            decrypted_data = b""
+            chunk_size = 1024
+            for i in range(0, len(ct), chunk_size):
+                chunk = ct[i:i + chunk_size]
+                decrypted_chunk = decryptor.update(chunk)
+                decrypted_data += decrypted_chunk
+                pbar.update(len(chunk))
+
+            decrypted_data += decryptor.finalize()
+
+        unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()
+        data = unpadder.update(decrypted_data) + unpadder.finalize()
+
+        return data.decode()
+```
 
 - Extracts the salt, IV and encrypted message from the received message.
 
@@ -215,5 +283,5 @@ The use of a random initialization vector (IV) is essential to ensure that messa
 ## Technologies used:
 
 ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)&nbsp; 
-__________________________________________________________
+
 
