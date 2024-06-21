@@ -96,7 +96,7 @@ designLineE = "===== keyHEX ===========================[SHA]256==============="
 designLineD = "===== keyHEX ================ Decrypted message ==============="
 designLine = "==============================================================="
 inputMessageEncrypt = "\n          Type the message: "
-inputMessageDecrypt = "          Enter the encrypted message (in hexadecimal): "
+inputMessageDecrypt = "\n          Enter the encrypted message (in hexadecimal): "
 passwordInput = "\n          Enter the password: "
 
 def main():
