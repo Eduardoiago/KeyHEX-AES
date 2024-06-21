@@ -75,12 +75,13 @@ def decrypt_message(encrypted_data, password):
 
 optionEncrypt = "          1. Encrypt in AES"
 optionDecrypt = "          2. Decrypt in AES"
-optionExit = "          3. Exit"
+optionExit = "          3. Exit\n"
 inputOption = "          Choose an option: "
-designLine = "==================================================================="
-inputMessageEncrypt = "          Type the message: "
+designLinef = "===== keyHEX ===========================[SHA]256========"
+designLine = "========================================================"
+inputMessageEncrypt = "\n          Type the message: "
 inputMessageDecrypt = "          Enter the encrypted message (in hexadecimal): "
-passwordInput = "          Enter the password: "
+passwordInput = "\n          Enter the password: "
 
 def main():
     while True:
@@ -105,19 +106,17 @@ def main():
         print(optionEncrypt)
         print(optionDecrypt)
         print(optionExit)
-        print(" ") 
         
         choice = input(inputOption)
         
         if choice == "1":
-            print(" ")
             message = input(inputMessageEncrypt)
             password = input(passwordInput)
             print(" ")
             encrypted_data = encrypt_message(message, password)
             print(" ")
-            print(designLine)
-            print("Encrypted message:", encrypted_data.hex())
+            print(designLinef)
+            print(encrypted_data.hex())
             print(designLine)
         elif choice == "2":
             print(" ")
