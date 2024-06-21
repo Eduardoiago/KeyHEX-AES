@@ -73,18 +73,35 @@ def decrypt_message(encrypted_data, password):
 
     return data.decode()
 
+def info():
+    clear_screen()
+    print(designLine)
+    print("♦  KEYHEX™  ♦")
+    print(designLine)
+    print("Github: https://github.com/Eduardoiago")
+    print("Developed by Eduardo Iago | Version 1.0.0\n")
+    print("The tool mission is to transform your message into an AES algorithm with SHA-256 in CFB mode that can only be decrypted with the encrypted code and password.\n")
+    print("Before encrypting your messages and links, the tool processes SubBytes, ShiftRows, MixColumns and AddRoundKey. Remember to use strong passwords.\n")
+    print("Visit the project documentation (https://github.com/Eduardoiago/KeyHEX-AES) to better understand how keyHEX works.")
+    input("\nPress ENTER to return to the Menu.")
+
+def clear_screen():
+    os.system("clear" if os.name == "posix" else "cls")
+
 optionEncrypt = "          1. Encrypt in AES"
 optionDecrypt = "          2. Decrypt in AES"
 optionExit = "          3. Exit\n"
 inputOption = "          Choose an option: "
-designLinef = "===== keyHEX ===========================[SHA]256========"
-designLine = "========================================================"
+designLineE = "===== keyHEX ===========================[SHA]256==============="
+designLineD = "===== keyHEX ================ Decrypted message ==============="
+designLine = "==============================================================="
 inputMessageEncrypt = "\n          Type the message: "
 inputMessageDecrypt = "          Enter the encrypted message (in hexadecimal): "
 passwordInput = "\n          Enter the password: "
 
 def main():
     while True:
+        clear_screen()
         print("""       
               
                      ♦  KEYHEX™ version 1.0 ♦
@@ -98,9 +115,9 @@ def main():
                     ░ ░▒ ▒░ ░ ░  ░▓██ ░▒░  ▒ ░▒░ ░ ░ ░  ░░░   ░▒ ░
                     ░ ░░ ░    ░   ▒ ▒ ░░   ░  ░░ ░   ░    ░    ░  
                     ░  ░      ░  ░░ ░      ░  ░  ░   ░  ░ ░    ░  
-                                  ░ ░                            
+                                  ░ ░                         
                     ==============================================
-                        Your message secure with AES encryption  
+                           AES Cryptography | SHA-256 in CFB mode  
                     ==============================================           
         """)
         print(optionEncrypt)
@@ -115,25 +132,28 @@ def main():
             print(" ")
             encrypted_data = encrypt_message(message, password)
             print(" ")
-            print(designLinef)
+            print(designLineE)
             print(encrypted_data.hex())
             print(designLine)
+            input("\nPress ENTER to return to the Menu.")
         elif choice == "2":
-            print(" ")
             encrypted_data = bytes.fromhex(input(inputMessageDecrypt))
             password = input(passwordInput)
             print(" ")
             decrypted_message = decrypt_message(encrypted_data, password)
             print(" ")
+            print(designLineD)
+            print(decrypted_message)
             print(designLine)
-            print("Decrypted message:", decrypted_message)
-            print(designLine)
+            input("\nPress ENTER to return to the Menu.")
         elif choice == "3":
-            print("Bye!")
+            print("\nBye!")
             break
+        elif choice == "--info":
+            info()
         else:
             print(designLine)
-            print("Invalid option! Choose a valid option.")
+            print("\nInvalid option! Choose a valid option.")
             print(designLine)
 
 if __name__ == "__main__":

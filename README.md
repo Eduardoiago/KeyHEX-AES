@@ -1,11 +1,11 @@
 
-<img src="https://i.ibb.co/5FBDP1s/title-keyhex.jpg" alt="title-keyhex" border="0">
+<img src="/assets/img/title-KeyHex.jpeg" alt="title-keyhex">
 
 > # KEYHEX
 
 #### AES Encryption Python Script
 
-The KeyHEX project is an interactive tool developed in Python that allows users to encrypt and decrypt messages using AES (Advanced Encryption Standard). The script's mission is to transform your message into an AES algorithm with SHA-256 in CFB mode that can only be decrypted with the encrypted code and password. KeyHEX was an experiment to study AES encryption.
+The KeyHEX project is an interactive tool developed in Python that allows users to encrypt and decrypt messages using AES (Advanced Encryption Standard). The tool mission is to transform your message into an AES algorithm with SHA-256 in CFB mode that can only be decrypted with the encrypted code and password. Before encrypting your messages and links, the tool processes SubBytes, ShiftRows, MixColumns and AddRoundKey. Remember to use strong passwords. KeyHEX was an experiment to study AES encryption. 
 
 _GUI development in progress._
 
