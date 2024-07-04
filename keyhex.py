@@ -90,7 +90,7 @@ def clear_screen():
 
 optionEncrypt = "          1. Encrypt in AES"
 optionDecrypt = "          2. Decrypt in AES"
-optionExit = "          3. Exit\n"
+optionExit = "          x. Exit\n"
 inputOption = "          Choose an option: "
 designLineE = "===== keyHEX ===========================[SHA]256==============="
 designLineD = "===== keyHEX ================ Decrypted message ==============="
@@ -146,7 +146,7 @@ def main():
             print(decrypted_message)
             print(designLine)
             input("\nPress ENTER to return to the Menu.")
-        elif choice == "3":
+        elif choice == "x":
             print("\nBye!")
             break
         elif choice == "--info":
