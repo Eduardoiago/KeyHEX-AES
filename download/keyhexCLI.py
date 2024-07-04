@@ -28,7 +28,7 @@ def S():N();A(C);A('♦  KEYHEX™  ♦');A(C);A('Github: https://github.com/Edu
 def N():os.system('clear'if os.name=='posix'else'cls')
 T='          1. Encrypt in AES'
 U='          2. Decrypt in AES'
-V='          3. Exit\n'
+V='          x. Exit\n'
 W='          Choose an option: '
 X='===== keyHEX ===========================[SHA]256==============='
 Y='===== keyHEX ================ Decrypted message ==============='
@@ -42,7 +42,7 @@ def b():
 		N();A('       \n              \n                     ♦  KEYHEX™ version 1.0 ♦\n              \n                     ██ ▄█▀▓█████▓██   ██▓ ██░ ██ ▓█████ ▒██   ██▒\n                     ██▄█▒ ▓█   ▀ ▒██  ██▒▓██░ ██▒▓█   ▀ ▒▒ █ █ ▒░\n                    ▓███▄░ ▒███    ▒██ ██░▒██▀▀██░▒███   ░░  █   ░\n                    ▓██ █▄ ▒▓█  ▄  ░ ▐██▓░░▓█ ░██ ▒▓█  ▄  ░ █ █ ▒ \n                    ▒██▒ █▄░▒████▒ ░ ██▒▓░░▓█▒░██▓░▒████▒▒██▒ ▒██▒\n                    ▒ ▒▒ ▓▒░░ ▒░ ░  ██▒▒▒  ▒ ░░▒░▒░░ ▒░ ░▒▒ ░ ░▓ ░\n                    ░ ░▒ ▒░ ░ ░  ░▓██ ░▒░  ▒ ░▒░ ░ ░ ░  ░░░   ░▒ ░\n                    ░ ░░ ░    ░   ▒ ▒ ░░   ░  ░░ ░   ░    ░    ░  \n                    ░  ░      ░  ░░ ░      ░  ░  ░   ░  ░ ░    ░  \n                                  ░ ░                         \n                    ==============================================\n                           AES Cryptography | SHA-256 in CFB mode  \n                    ==============================================           \n        ');A(T);A(U);A(V);D=B(W)
 		if D=='1':I=B(Z);F=B(O);A(E);H=Q(I,F);A(E);A(X);A(H.hex());A(C);B(G)
 		elif D=='2':H=bytes.fromhex(B(a));F=B(O);A(E);J=R(H,F);A(E);A(Y);A(J);A(C);B(G)
-		elif D=='3':A('\nBye!');break
+		elif D=='x':A('\nBye!');break
 		elif D=='--info':S()
 		else:A(C);A('\nInvalid option! Choose a valid option.');A(C)
 if __name__=='__main__':b()
